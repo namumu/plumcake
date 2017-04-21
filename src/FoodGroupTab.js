@@ -14,42 +14,42 @@ export default class FoodGroupTab extends Component {
   render() {
     const fruitVeges = {
       text: 'Fruit & Veges',
-      image: "../images/fruit-and-veg.jpg",
+      image: "/images/fruit-and-veg.jpg",
       modalText: 'lots of vitamin c etc etc etc etc',
       subtitle: 'dont eat veges',
     };
 
     const protein = {
       text: 'Protein',
-      image: '../images/protein.jpg',
+      image: '/images/protein.jpg',
       modalText: 'tastesgood',
       subtitle: 'strong',
     };
 
     const other = {
       text: 'Other',
-      image: '../images/other.jpg',
+      image: '/images/other.jpg',
       modalText: 'wtf is other anyway',
       subtitle: 'cats',
     };
 
     const dairy = {
       text: 'Milk & Milk products',
-      image: '../images/milk.jpg',
+      image: '/images/milk.jpg',
       modalText: 'food that was falsely marketted by money hungry farmers',
       subtitle: 'i thought milk was protein',
     };
 
     const grain = {
       text: 'Grain foods',
-      image: '../images/wholegrains.jpg',
+      image: '/images/wholegrains.jpg',
       modalText: 'bread',
       subtitle: 'migraine',
     };
 
     const drink = {
       text: 'Drinks',
-      image: '../images/drinks.jpg',
+      image: '/images/drinks.png',
       modalText: 'up and go',
       subtitle: 'tasty',
     };
@@ -57,6 +57,10 @@ export default class FoodGroupTab extends Component {
       <div>
         <FoodGroupCard obj={fruitVeges}/>
         <FoodGroupCard obj={protein}/>
+        <FoodGroupCard obj={other}/>
+        <FoodGroupCard obj={dairy}/>
+        <FoodGroupCard obj={grain}/>
+        <FoodGroupCard obj={drink}/>
 
       </div>
     );
