@@ -50,7 +50,7 @@ export default class FoodGroupTab extends Component {
     const drink = {
       text: 'Drinks',
       image: './images/drinks.png',
-      modalText: 'up and go',
+      modalText: 'Do you find yourself racing out the door each workday morning without having had breakfast? Or are you one of the 20% of employees who now eat breakfast at work*? Sanitarium New Zealand’s UP&GO liquid breakfast is a convenient choice for when you are on the go. We’ve done the thinking for you to help get your day off to a nutritious start. * Cereal Social Trends Report for ABCMF. McCrindle Research 2012.',
       subtitle: 'tasty',
     };
     return(
