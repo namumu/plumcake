@@ -6,9 +6,20 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import IconButton from 'material-ui/IconButton';
 import SocialCake from 'material-ui/svg-icons/social/cake';
 import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
 
 export default class FoodGroupCard extends Component {
+  state = {
+    open: false,
+  };
 
+  handleOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   render() {
     const obj = this.props.obj;
@@ -44,7 +55,15 @@ export default class FoodGroupCard extends Component {
     }
 
     return(
-      <Card style= {{ width: width, float:'left' }}>
+      <Card style={{ width: width, float:'left', cursor:'pointer'}} onTouchTap={this.handleOpen}>
+        <Dialog
+          title={text}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          {modalText}
+        </Dialog>
         <CardMedia overlay={<CardTitle title={text} subtitle={subtitle} />} mediaStyle={{flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain'}}>
           <img src={imageSource()}
            style={{ flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain', overflow:'hidden', height:'40vh', background:'no-repeat scroll' }} />

@@ -16,7 +16,7 @@ export default class FoodGroupTab extends Component {
       text: 'Fruit & Veges',
       image: "./images/fruit-and-veg.jpg",
       modalText: 'lots of vitamin c etc etc etc etc',
-      subtitle: 'dont eat veges',
+      subtitle: 'why eat veges when you can eat chips',
     };
 
     const protein = {
