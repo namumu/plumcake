@@ -13,15 +13,41 @@ export default class FoodGroupCard extends Component {
   render() {
     const obj = this.props.obj;
     const text = obj.text;
-    const image = obj.image;
+    let image;
     const subtitle = obj.subtitle;
     const modalText = obj.modalText;
     const width = '33%';
 
+    function imageSource() {
+      switch(text) {
+        case 'Fruit & Veges':
+          return require('../public/images/fruit-and-veg.jpg');
+          break;
+        case 'Protein':
+          return require('../public/images/protein.jpg');
+          break;
+        case 'Other':
+          return require('../public/images/other.jpg');
+          break;
+        case 'Milk & Milk products':
+          return require('../public/images/milk.jpg');
+          break;
+        case 'Drinks':
+          return require('../public/images/drinks.png');
+          break;
+        case 'Grain foods':
+          return require('../public/images/wholegrains.jpg');
+          break;
+        default:
+          break;
+      }
+    }
+
     return(
       <Card style= {{ width: width, float:'left' }}>
         <CardMedia overlay={<CardTitle title={text} subtitle={subtitle} />} mediaStyle={{flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain'}}>
-          <img src={require(image)} style={{ flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain', overflow:'hidden', height:'40vh', background:'no-repeat scroll' }} />
+          <img src={imageSource()}
+           style={{ flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain', overflow:'hidden', height:'40vh', background:'no-repeat scroll' }} />
         </CardMedia>
       </Card>
     );
