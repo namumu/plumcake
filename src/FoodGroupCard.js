@@ -31,24 +31,18 @@ export default class FoodGroupCard extends Component {
 
     function imageSource() {
       switch(text) {
-        case 'Fruit & Veges':
+        case 'Fruit and vegetables':
           return require('../public/images/fruit-and-veg.jpg');
-          break;
-        case 'Protein':
+        case 'Lean meats and alternatives':
           return require('../public/images/protein.jpg');
-          break;
         case 'Other':
           return require('../public/images/other.jpg');
-          break;
-        case 'Milk & Milk products':
+        case 'Milk and milk products':
           return require('../public/images/milk.jpg');
-          break;
-        case 'Drinks':
-          return require('../public/images/drinks.png');
-          break;
-        case 'Grain foods':
+        case 'Beverage':
+          return require('../public/images/drinks.jpg');
+        case 'Breads and cereals':
           return require('../public/images/wholegrains.jpg');
-          break;
         default:
           break;
       }
@@ -62,7 +56,7 @@ export default class FoodGroupCard extends Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          {modalText}
+        <div className="content" dangerouslySetInnerHTML={{__html: modalText}}></div>
         </Dialog>
         <CardMedia overlay={<CardTitle title={text} subtitle={subtitle} />} mediaStyle={{flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain'}}>
           <img src={imageSource()}

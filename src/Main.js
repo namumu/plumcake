@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import {Card, CardActions, CardMedia, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import IconButton from 'material-ui/IconButton';
 import SocialCake from 'material-ui/svg-icons/social/cake';
@@ -9,19 +9,6 @@ import FoodChip from './FoodChip';
 import FoodCard from './FoodCard';
 import Tabbed from './Tabbed';
 
-const testObj = {
-  name: 'Apple',
-  calories: '100kcal',
-  fat: '100g',
-  carb: '200g',
-  protein: '300g',
-  portionSize: '400g',
-  grams: '50g',
-  image: '../public/images/apple.jpg',
-  category: 'Fruit'
-
-}
-
 const Main = (props) => (
   <div>
     <AppBar
@@ -29,9 +16,12 @@ const Main = (props) => (
       iconElementLeft={<IconButton><SocialCake /></IconButton>}
     />
     <img src= '../images/banner.png' style={{ width:'20%', height:'100%', float:'left' }}/>
-      <div>
-        <Tabbed style={{ float:'right' }}/>
-      </div>
+    <Card id='aaa' style={{display:'inline-block', float:'right', width:'80%', padding:'1rem'}}>
+      <Tabbed style={{ float:'right' }}/>
+
+
+
+    </Card>
   </div>
 );
 
