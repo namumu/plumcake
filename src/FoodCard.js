@@ -12,6 +12,7 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
+import Toggle from 'material-ui/Toggle';
 export default class FoodCard extends Component {
 
 
@@ -30,11 +31,10 @@ export default class FoodCard extends Component {
 
 
     const styles = {
-    block: {
-      maxWidth: 250,
-    },
     checkbox: {
       marginBottom: 16,
+      width: '10%',
+      margin:'auto',
     },
   };
 
@@ -54,10 +54,11 @@ export default class FoodCard extends Component {
           </CardText>
           <CardActions style={{ padding:'0' }}>
             <FlatButton label="Search on Google" style={{ marginRight:'0' }} href= {googleSearchString + name} target="_blank" />
-            <div style={styles.block}>
-              <Checkbox
+            <div>
+              <Toggle
                 label="Pinned"
-                style={styles.checkbox}
+                defaultToggled={true}
+                style={{ width:'10%', margin:'auto', paddingLeft:'16px' }}
               />
             </div>
           </CardActions>
