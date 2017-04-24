@@ -4,6 +4,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FoodGroupTab from './FoodGroupTab';
 import AutoComplete from 'material-ui/AutoComplete';
+import FoodCard from './FoodCard';
 
 const fruit = [
   'Apple', 'Apricot', 'Avocado',
@@ -53,7 +54,7 @@ const testObj = {
   portionSize: '400g',
   grams: '50g',
   image: '../public/images/apple.jpg',
-  category: 'Fruit'
+  category: 'Fruit and vegetables'
 
 }
 
@@ -63,6 +64,8 @@ export default class Tabbed extends React.Component {
     super(props);
     this.state = {
       slideIndex: 0,
+      searchText: '',
+
     };
   }
 
@@ -70,15 +73,22 @@ export default class Tabbed extends React.Component {
     simple: '',
   };
 
-  handleSimpleChange = (value) => {
-    this.setState({food: value});
-  };
-
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
     });
   };
+
+  onNewRequest = (chosenRequest, index) => {
+    this.setState({
+      searchText: chosenRequest,
+    });
+    if(index != -1) {
+
+    }else {
+
+    }
+  }
 
   render() {
     return (
@@ -100,10 +110,13 @@ export default class Tabbed extends React.Component {
           <div style={styles.slide} style={{ textAlign:'center' }}>
             <AutoComplete
               floatingLabelText="Enter a food!"
-              filter={AutoComplete.fuzzyFilter}
+              filter={AutoComplete.noFilter}
               dataSource={fruit}
               maxSearchResults={5}
+              onNewRequest={ this.onNewRequest.bind(this) }
+              searchText={this.state.searchText}
             />
+            <FoodCard obj={testObj} />
           </div>
         </SwipeableViews>
       </div>

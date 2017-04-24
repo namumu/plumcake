@@ -42,7 +42,7 @@ export default class FoodGroupTab extends Component {
       '<p>These foods are often high in sugar, salt and fat.</p>' +
       '<p>A great way to find out how much sugar, fat and salt are in these foods, read the label!</p>' +
       '<p>Turn the packaging around and look at the nutrient information panel, choose foods that are <10g fat and <10g sugar per 100g.</p>' +
-      '<p>The recommended salt intake is <2300mg a day so make sure you aren’t eating all your salt from that one packet of chips!</p>',
+      '<p>The recommended salt intake is <1 teaspoon per day, so make sure you aren’t eating all your salt from that one packet of chips!</p>',
       subtitle: 'cats',
     };
 
