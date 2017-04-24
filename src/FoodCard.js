@@ -7,12 +7,17 @@ import IconButton from 'material-ui/IconButton';
 import SocialCake from 'material-ui/svg-icons/social/cake';
 import FlatButton from 'material-ui/FlatButton';
 import Left from './Left';
-
+import Checkbox from 'material-ui/Checkbox';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import Visibility from 'material-ui/svg-icons/action/visibility';
+import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 export default class FoodCard extends Component {
 
 
   render() {
-    const obj = this.props.obj;
+    const googleSearchString = 'http://www.google.com/search?q=one+serving+of+';
+    const obj = this.props.obj[0];
     const name = obj.name;
     const calories = obj.calories;
     const fat = obj.fat;
@@ -23,19 +28,40 @@ export default class FoodCard extends Component {
     const image = obj.image;
     const category = obj.category;
 
+
+    const styles = {
+    block: {
+      maxWidth: 250,
+    },
+    checkbox: {
+      marginBottom: 16,
+    },
+  };
+
     return(
-      <Card style={{ width:'20%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue' }}>
-        <CardMedia>
-          <img src={require('../public/images/apple.jpg')} style={{ borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem' }} />
-        </CardMedia>
-        <CardTitle title={name} subtitle={category}/>
-        <CardText>
-          <p><b>Portion Size:</b> {portionSize}</p>
-          <p><b>Grams:</b> {grams}</p>
-          <p><b>Calories:</b> {calories}</p>
-          <p><b>Fat:</b> {fat}</p>
-          <p><b>Carbohydrates:</b> {carb}</p>
-        </CardText>
+      <Card style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem' }}>
+
+          <img src={require('../public/images/apple.jpg')} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden' }} />
+
+        <div>
+          <CardTitle title={name} subtitle={category} style={{ padding:'0' }}/>
+          <CardText style={{ textAlign:'center', padding:'0' }}>
+            <p><b>Portion Size:</b> {portionSize}</p>
+            <p><b>Grams:</b> {grams}</p>
+            <p><b>Calories:</b> {calories}</p>
+            <p><b>Fat:</b> {fat}</p>
+            <p><b>Carbohydrates:</b> {carb}</p>
+          </CardText>
+          <CardActions style={{ padding:'0' }}>
+            <FlatButton label="Search on Google" style={{ marginRight:'0' }} href= {googleSearchString + name} target="_blank" />
+            <div style={styles.block}>
+              <Checkbox
+                label="Pinned"
+                style={styles.checkbox}
+              />
+            </div>
+          </CardActions>
+        </div>
       </Card>
     );
   }
@@ -44,5 +70,5 @@ export default class FoodCard extends Component {
 }
 
 FoodCard.propTypes = {
-  obj: PropTypes.object.isRequired,
+  obj: PropTypes.array.isRequired,
 };

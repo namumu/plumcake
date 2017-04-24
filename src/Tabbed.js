@@ -7,30 +7,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import FoodCard from './FoodCard';
 
 const fruit = [
-  'Apple', 'Apricot', 'Avocado',
-  'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry',
-  'Boysenberry', 'Blood Orange',
-  'Cantaloupe', 'Currant', 'Cherry', 'Cherimoya', 'Cloudberry',
-  'Coconut', 'Cranberry', 'Clementine',
-  'Damson', 'Date', 'Dragonfruit', 'Durian',
-  'Elderberry',
-  'Feijoa', 'Fig',
-  'Goji berry', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava',
-  'Honeydew', 'Huckleberry',
-  'Jabouticaba', 'Jackfruit', 'Jambul', 'Jujube', 'Juniper berry',
-  'Kiwi fruit', 'Kumquat',
-  'Lemon', 'Lime', 'Loquat', 'Lychee',
-  'Nectarine',
-  'Mango', 'Marion berry', 'Melon', 'Miracle fruit', 'Mulberry', 'Mandarine',
-  'Olive', 'Orange',
-  'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Physalis', 'Plum', 'Pineapple',
-  'Pumpkin', 'Pomegranate', 'Pomelo', 'Purple Mangosteen',
-  'Quince',
-  'Raspberry', 'Raisin', 'Rambutan', 'Redcurrant',
-  'Salal berry', 'Satsuma', 'Star fruit', 'Strawberry', 'Squash', 'Salmonberry',
-  'Tamarillo', 'Tamarind', 'Tomato', 'Tangerine',
-  'Ugli fruit',
-  'Watermelon',
+  'Apple', 'Pear'
 ];
 
 const styles = {
@@ -45,17 +22,29 @@ const styles = {
   },
 };
 
-const testObj = {
-  name: 'Apple',
-  calories: '100kcal',
-  fat: '100g',
-  carb: '200g',
-  protein: '300g',
-  portionSize: '400g',
-  grams: '50g',
-  image: '../public/images/apple.jpg',
-  category: 'Fruit and vegetables'
-
+const FoodMap = {
+  apple: [{
+    name: 'Apple',
+    calories: '100kcal',
+    fat: '100g',
+    carb: '200g',
+    protein: '300g',
+    portionSize: '400g',
+    grams: '50g',
+    image: '../public/images/apple.jpg',
+    category: 'Fruit and vegetables'
+  }],
+  pear: [{
+    name: 'Pear',
+    calories: '400kcal',
+    fat: '20g',
+    carb: '10g',
+    protein: '90g',
+    portionSize: '123g',
+    grams: '857g',
+    image: '../public/images/pear.png',
+    category: 'Fruit and vegetables'
+  }],
 }
 
 export default class Tabbed extends React.Component {
@@ -65,6 +54,7 @@ export default class Tabbed extends React.Component {
     this.state = {
       slideIndex: 0,
       searchText: '',
+      trueText:'',
 
     };
   }
@@ -76,6 +66,7 @@ export default class Tabbed extends React.Component {
   handleChange = (value) => {
     this.setState({
       slideIndex: value,
+      showFoodCard: false,
     });
   };
 
@@ -83,11 +74,20 @@ export default class Tabbed extends React.Component {
     this.setState({
       searchText: chosenRequest,
     });
-    if(index != -1) {
-
+    var foodObject = FoodMap[chosenRequest.toLowerCase()];
+    if(foodObject != null) {
+      console.log(FoodMap[chosenRequest.toLowerCase()]);
+      this.setState({
+        trueText: chosenRequest,
+        showFoodCard: true,
+      });
     }else {
-
+      this.setState({
+        showFoodCard: false,
+      });
     }
+
+
   }
 
   render() {
@@ -107,7 +107,7 @@ export default class Tabbed extends React.Component {
           <div>
             <FoodGroupTab />
           </div>
-          <div style={styles.slide} style={{ textAlign:'center' }}>
+          <div style={styles.slide} style={{ textAlign:'center', marginTop:'5rem' }}>
             <AutoComplete
               floatingLabelText="Enter a food!"
               filter={AutoComplete.noFilter}
@@ -115,8 +115,12 @@ export default class Tabbed extends React.Component {
               maxSearchResults={5}
               onNewRequest={ this.onNewRequest.bind(this) }
               searchText={this.state.searchText}
+              textFieldStyle={{fontSize:'32px', lineHeight:'32px', height:'92px'}}
             />
-            <FoodCard obj={testObj} />
+            {
+              this.state.showFoodCard &&
+              <FoodCard obj={FoodMap[this.state.trueText.toLowerCase()]} />
+            }
           </div>
         </SwipeableViews>
       </div>
