@@ -5,6 +5,8 @@ import SwipeableViews from 'react-swipeable-views';
 import FoodGroupTab from './FoodGroupTab';
 import AutoComplete from 'material-ui/AutoComplete';
 import FoodCard from './FoodCard';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const fruit = [
   'Apple', 'Pear'
@@ -55,7 +57,7 @@ export default class Tabbed extends React.Component {
       slideIndex: 0,
       searchText: '',
       trueText:'',
-
+      foodArray: [],
     };
   }
 
@@ -75,20 +77,33 @@ export default class Tabbed extends React.Component {
       searchText: chosenRequest,
     });
     var foodObject = FoodMap[chosenRequest.toLowerCase()];
-    if(foodObject != null) {
-      console.log(FoodMap[chosenRequest.toLowerCase()]);
+    if(foodObject != null && !this.state.foodArray.includes(chosenRequest.toLowerCase())) {
+      var newArray = this.state.foodArray.slice();
+      newArray.push(chosenRequest);
       this.setState({
         trueText: chosenRequest,
+        foodArray: newArray,
         showFoodCard: true,
-      });
-    }else {
-      this.setState({
-        showFoodCard: false,
       });
     }
 
+  }
+
+  clearAll = () => {
+    var newArray = [];
+    this.setState({
+      foodArray: newArray,
+      showFoodCard: false,
+    })
 
   }
+
+  // returnFoodCards = () => {
+  //   console.log(this.state.foodArray);
+  //   this.state.foodArray.forEach(function(food) {
+  //     return(foodCards.push(<FoodCard obj={FoodMap[food.toLowerCase()]} />));
+  //   })
+  // }
 
   render() {
     return (
@@ -107,20 +122,30 @@ export default class Tabbed extends React.Component {
           <div>
             <FoodGroupTab />
           </div>
-          <div style={styles.slide} style={{ textAlign:'center', marginTop:'5rem' }}>
-            <AutoComplete
-              floatingLabelText="Enter a food!"
-              filter={AutoComplete.noFilter}
-              dataSource={fruit}
-              maxSearchResults={5}
-              onNewRequest={ this.onNewRequest.bind(this) }
-              searchText={this.state.searchText}
-              textFieldStyle={{fontSize:'32px', lineHeight:'32px', height:'92px'}}
-            />
-            {
-              this.state.showFoodCard &&
-              <FoodCard obj={FoodMap[this.state.trueText.toLowerCase()]} />
-            }
+          <div>
+          <FlatButton label="Clear All" secondary={true} fullWidth={true} labelStyle={{ fontSize:'20px' }} onTouchTap={this.clearAll.bind(this)}/>
+            <div style={styles.slide} style={{ textAlign:'center', marginTop:'5rem' }}>
+
+              <AutoComplete
+                floatingLabelText="Enter a food!"
+                filter={AutoComplete.noFilter}
+                dataSource={fruit}
+                maxSearchResults={5}
+                onNewRequest={ this.onNewRequest.bind(this) }
+                searchText={this.state.searchText}
+                textFieldStyle={{fontSize:'32px', lineHeight:'32px', height:'92px'}}
+              />
+
+
+              {
+                this.state.showFoodCard &&
+                this.state.foodArray.map(function(food) {
+                  return(<FoodCard obj={FoodMap[food.toLowerCase()]} key={food} />);
+                })
+              }
+
+
+            </div>
           </div>
         </SwipeableViews>
       </div>
