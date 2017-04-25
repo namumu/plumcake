@@ -17,6 +17,12 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 export default class FoodCard extends Component {
 
+  clearCard = () => {
+    var name = this.props.obj[0].name.toLowerCase();
+    console.log(name);
+    this.props.clearCard(name);
+  }
+
 
   render() {
     const googleSearchString = 'http://www.google.com/search?q=one+serving+of+';
@@ -30,8 +36,6 @@ export default class FoodCard extends Component {
     const grams = obj.grams;
     const image = obj.image;
     const category = obj.category;
-
-
     const styles = {
     checkbox: {
       marginBottom: 16,
@@ -47,7 +51,7 @@ export default class FoodCard extends Component {
 
         <div>
         <div style={{ float:'right', width:'50%' }}>
-          <IconButton style={{float:'right' }} ><NavigationClose /></IconButton>
+          <IconButton style={{float:'right' }} onTouchTap={this.clearCard}><NavigationClose /></IconButton>
         </div>
           <CardTitle title={name} subtitle={category} style={{ padding:'0' }}/>
           <CardText style={{ textAlign:'center', padding:'0' }}>
@@ -59,13 +63,6 @@ export default class FoodCard extends Component {
           </CardText>
           <CardActions style={{ padding:'0' }}>
             <FlatButton label="Search on Google" style={{ marginRight:'0' }} href= {googleSearchString + name} target="_blank" />
-            <div>
-              <Toggle
-                label="Pinned"
-                defaultToggled={true}
-                style={{ width:'10%', margin:'auto', paddingLeft:'16px' }}
-              />
-            </div>
           </CardActions>
         </div>
       </Card>
@@ -77,4 +74,5 @@ export default class FoodCard extends Component {
 
 FoodCard.propTypes = {
   obj: PropTypes.array.isRequired,
+  clearCard: PropTypes.func.isRequired,
 };

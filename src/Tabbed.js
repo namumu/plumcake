@@ -98,6 +98,16 @@ export default class Tabbed extends React.Component {
 
   }
 
+  clearCard = (card) => {
+      var newArray = this.state.foodArray;
+      var index = newArray.indexOf(card);
+      newArray.splice(index, 1);
+      this.setState({
+        foodArray: newArray,
+      });
+
+  }
+
   // returnFoodCards = () => {
   //   console.log(this.state.foodArray);
   //   this.state.foodArray.forEach(function(food) {
@@ -139,8 +149,8 @@ export default class Tabbed extends React.Component {
 
               {
                 this.state.showFoodCard &&
-                this.state.foodArray.map(function(food) {
-                  return(<FoodCard obj={FoodMap[food.toLowerCase()]} key={food} />);
+                this.state.foodArray.map(food => {
+                    return(<FoodCard obj={FoodMap[food.toLowerCase()]} key={food} clearCard={this.clearCard.bind(this)} />);
                 })
               }
 
