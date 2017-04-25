@@ -14,6 +14,8 @@ import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import Toggle from 'material-ui/Toggle';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 export default class FoodCard extends Component {
 
@@ -45,7 +47,12 @@ export default class FoodCard extends Component {
   };
 
     return(
-      <Card style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem' }}>
+      <ReactCSSTransitionGroup
+        transitionName = "example"
+        transitionEnterTimeout={700} transitionLeaveTimeout={300}
+        transitionAppear={true}
+        transitionAppearTimeout={500} component='div'>
+      <Card key={name} style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem', transition:'700ms' }}>
 
           <img src={require('../public/images/apple.jpg')} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden' }} />
 
@@ -66,6 +73,7 @@ export default class FoodCard extends Component {
           </CardActions>
         </div>
       </Card>
+      </ReactCSSTransitionGroup>
     );
   }
 

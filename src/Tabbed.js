@@ -7,6 +7,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import FoodCard from './FoodCard';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const fruit = [
   'Apple', 'Pear'
@@ -145,15 +146,21 @@ export default class Tabbed extends React.Component {
                 searchText={this.state.searchText}
                 textFieldStyle={{fontSize:'32px', lineHeight:'32px', height:'92px'}}
               />
+              <ReactCSSTransitionGroup
+                transitionName = "example"
+                transitionEnterTimeout={700} transitionLeaveTimeout={300}
+                transitionAppear={true}
+                transitionAppearTimeout={500} component='div'>
+                {
+                  this.state.showFoodCard &&
+                  this.state.foodArray.map(food => {
+                      return(
 
-
-              {
-                this.state.showFoodCard &&
-                this.state.foodArray.map(food => {
-                    return(<FoodCard obj={FoodMap[food.toLowerCase()]} key={food} clearCard={this.clearCard.bind(this)} />);
-                })
-              }
-
+                        <FoodCard obj={FoodMap[food.toLowerCase()]} key={food} clearCard={this.clearCard.bind(this)} style={{opacity:'0', transition:'opacity 1s ease-in-out'}}/>
+                      );
+                  })
+                }
+              </ReactCSSTransitionGroup >
 
             </div>
           </div>
