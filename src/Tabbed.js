@@ -122,6 +122,7 @@ export default class Tabbed extends React.Component {
         <Tabs
           onChange={this.handleChange}
           value={this.state.slideIndex}
+          inkBarStyle={{ height:'4px', marginTop:'-4px' }}
         >
           <Tab label="What are the food groups?" value={0} />
           <Tab label="How much is one serving?" value={1} />

@@ -55,6 +55,7 @@ export default class FoodGroupCard extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
+          contentStyle={{ borderWidth:'10px', borderColor:'rgb(0, 188, 212)', borderStyle:'solid' }}
         >
         <div className="content" dangerouslySetInnerHTML={{__html: modalText}}></div>
         </Dialog>
