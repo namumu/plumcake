@@ -80,7 +80,7 @@ export default class Tabbed extends React.Component {
     var foodObject = FoodMap[chosenRequest.toLowerCase()];
     if(foodObject != null && !this.state.foodArray.includes(chosenRequest.toLowerCase())) {
       var newArray = this.state.foodArray.slice();
-      newArray.push(chosenRequest);
+      newArray.unshift(chosenRequest);
       this.setState({
         trueText: chosenRequest,
         foodArray: newArray,
