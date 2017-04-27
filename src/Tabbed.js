@@ -137,7 +137,7 @@ export default class Tabbed extends React.Component {
           </div>
           <div>
           <h1>What is a healthy plate model?</h1>
-            <img src={require("../public/images/healthy.png")} style={{ margin:'0 auto', display:'block', width:'60%', float:'right' }}/>
+            <img src={require("../public/images/healthy.png")} style={{ margin:'0 auto', display:'block', width:'40%', float:'right' }}/>
             <p>
               A healthy plate model consists of 3 parts. The starchy carbohydrate takes up 1/4 of the plate, the protein food takes up 1/4 of the plate and vegetables takes up the remaining 1/2.
             </p>
