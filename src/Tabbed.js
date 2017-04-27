@@ -125,7 +125,8 @@ export default class Tabbed extends React.Component {
           inkBarStyle={{ height:'4px', marginTop:'-4px' }}
         >
           <Tab label="What are the food groups?" value={0} />
-          <Tab label="How much is one serving?" value={1} />
+          <Tab label="What is a healthy plate model?" value={1} />
+          <Tab label="How much is one serving?" value={2} />
         </Tabs>
         <SwipeableViews
           index={this.state.slideIndex}
@@ -133,6 +134,18 @@ export default class Tabbed extends React.Component {
         >
           <div>
             <FoodGroupTab />
+          </div>
+          <div>
+          <h1>What is a healthy plate model?</h1>
+            <img src={require("../public/images/healthy.png")} style={{ margin:'0 auto', display:'block', width:'60%', float:'right' }}/>
+            <p>
+              A healthy plate model consists of 3 parts. The starchy carbohydrate takes up 1/4 of the plate, the protein food takes up 1/4 of the plate and vegetables takes up the remaining 1/2.
+            </p>
+            <h3>Examples</h3>
+            <p><b>Starchy carbohydrates</b>: potato, kumara, rice, pasta, grains, corn, taro, parsnip</p>
+            <p><b>Protein foods</b>: lean meats, fish, seafood, eggs, baked beans</p>
+            <p><b>Vegetables</b>: salad vegetables, carrot, capsicum, pumpkin, onion</p>
+
           </div>
           <div>
           <FlatButton label="Clear All" secondary={true} fullWidth={true} labelStyle={{ fontSize:'20px' }} onTouchTap={this.clearAll.bind(this)}/>

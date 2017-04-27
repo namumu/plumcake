@@ -49,7 +49,7 @@ export default class FoodGroupCard extends Component {
     }
 
     return(
-      <Card style={{ width: width, float:'left', cursor:'pointer'}} onTouchTap={this.handleOpen}>
+      <Card style={{ width: width, float:'left', cursor:'pointer', width:'33.3%'}} onTouchTap={this.handleOpen}>
         <Dialog
           title={text}
           modal={false}

@@ -4,6 +4,9 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import IconButton from 'material-ui/IconButton';
 import SocialCake from 'material-ui/svg-icons/social/cake';
+import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Left from './Left';
 import FoodChip from './FoodChip';
 import FoodCard from './FoodCard';
@@ -15,8 +18,15 @@ const Main = (props) => (
       title="Plum Cake"
       iconElementLeft={<IconButton><SocialCake /></IconButton>}
     />
-    <img src= '../images/banner.png' style={{ width:'20%', height:'100%', float:'left' }}/>
-    <Card id='aaa' style={{display:'inline-block', float:'right', width:'80%', padding:'1rem'}}>
+    <div style={{ width:'20%', height:'100%', float:'left' }}>
+      <img src= '../images/banner.png'/>
+
+
+
+
+    </div>
+
+    <Card id='aaa' style={{display:'inline-block', float:'right', width:'80%', padding:'1rem', backgroundColor:'azure'}}>
       <Tabbed style={{ float:'right' }}/>
 
 
