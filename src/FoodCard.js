@@ -68,6 +68,7 @@ export default class FoodCard extends Component {
             <p><b>Calories:</b> {calories}</p>
             <p><b>Fat:</b> {fat}</p>
             <p><b>Carbohydrates:</b> {carb}</p>
+            <p><b>Protein:</b> {protein}</p>
           </CardText>
           <CardActions style={{ padding:'0' }}>
             <FlatButton label="Search on Google" style={{ marginRight:'0' }} href= {googleSearchString + name} target="_blank" />
