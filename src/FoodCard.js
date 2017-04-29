@@ -38,6 +38,7 @@ export default class FoodCard extends Component {
     const grams = obj.grams;
     const image = obj.image;
     const category = obj.category;
+    const codeName = obj.codeName;
     const styles = {
     checkbox: {
       marginBottom: 16,
@@ -54,7 +55,7 @@ export default class FoodCard extends Component {
         transitionAppearTimeout={500} component='div'>
       <Card key={name} style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem', transition:'700ms' }}>
 
-          <img src={require('../public/images/apple.jpg')} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden' }} />
+          <img src={image} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden' }} />
 
         <div>
         <div style={{ float:'right', width:'50%' }}>
