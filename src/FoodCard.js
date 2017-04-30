@@ -53,14 +53,14 @@ export default class FoodCard extends Component {
         transitionEnterTimeout={700} transitionLeaveTimeout={300}
         transitionAppear={true}
         transitionAppearTimeout={500} component='div'>
-      <Card key={name} style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem', transition:'700ms' }}>
+      <Card key={name} containerStyle={{ width:'100%' }} style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem', transition:'700ms' }}>
 
           <img src={image} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden', height:'100%' }} />
 
         <div>
-        <div style={{ float:'right', width:'50%' }}>
-          <IconButton style={{float:'right' }} onTouchTap={this.clearCard}><NavigationClose /></IconButton>
-        </div>
+          <div style={{ float:'right', width:'50%' }}>
+            <IconButton style={{float:'right' }} onTouchTap={this.clearCard}><NavigationClose /></IconButton>
+          </div>
           <CardTitle title={name} subtitle={category} style={{ padding:'0' }}/>
           <CardText style={{ textAlign:'center', padding:'0' }}>
             <p><b>Portion Size:</b> {portionSize}</p>
