@@ -11,22 +11,21 @@ import Left from './Left';
 import FoodChip from './FoodChip';
 import FoodCard from './FoodCard';
 import Tabbed from './Tabbed';
-
+// <div style={{ width:'20%', height:'100%', float:'left' }}>
+//   <img src= '../images/banner.png'/>
+//
+//
+//
+//
+// </div>
 const Main = (props) => (
   <div>
     <AppBar
       title="Plum Cake"
       iconElementLeft={<IconButton><SocialCake /></IconButton>}
     />
-    <div style={{ width:'20%', height:'100%', float:'left' }}>
-      <img src= '../images/banner.png'/>
 
-
-
-
-    </div>
-
-    <Card id='aaa' style={{display:'inline-block', float:'right', width:'80%', padding:'1rem', backgroundColor:'azure'}}>
+    <Card id='aaa' style={{display:'inline-block', float:'right', width:'100%', padding:'1rem', backgroundColor:'azure'}}>
       <Tabbed style={{ float:'right' }}/>
 
 

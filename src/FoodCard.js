@@ -55,7 +55,7 @@ export default class FoodCard extends Component {
         transitionAppearTimeout={500} component='div'>
       <Card key={name} style={{ width:'80%', height:'100%', borderRadius:'1rem', backgroundColor:'lightblue', margin:'auto', display:'flex', marginTop:'5rem', transition:'700ms' }}>
 
-          <img src={image} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden' }} />
+          <img src={image} style={{ borderTopLeftRadius: '1rem', borderBottomLeftRadius: '1rem', width:'50%', float:'left', overflow:'hidden', height:'100%' }} />
 
         <div>
         <div style={{ float:'right', width:'50%' }}>
