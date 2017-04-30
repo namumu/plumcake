@@ -577,12 +577,10 @@ export default class Tabbed extends React.Component {
     this.setState({
       searchText: chosenRequest,
     });
-    console.log(FoodMap);
     var foodObject = FoodMap[chosenRequest.toLowerCase()];
-    console.log(foodObject);
     if(foodObject != null && !this.state.foodArray.includes(chosenRequest.toLowerCase())) {
       var newArray = this.state.foodArray.slice();
-      newArray.unshift(chosenRequest);
+      newArray.unshift(chosenRequest.toLowerCase());
       this.setState({
         trueText: chosenRequest,
         foodArray: newArray,
@@ -602,9 +600,13 @@ export default class Tabbed extends React.Component {
   }
 
   clearCard = (card) => {
+
       var newArray = this.state.foodArray;
       var index = newArray.indexOf(card);
+      console.log(card);
+      console.log(newArray);
       newArray.splice(index, 1);
+
       this.setState({
         foodArray: newArray,
       });
