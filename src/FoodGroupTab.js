@@ -17,6 +17,7 @@ export default class FoodGroupTab extends Component {
       image: "./images/fruit-and-veg.jpg",
       modalText: '<p>These colourful foods provide us with essential vitamins, minerals and antioxidants. </p>' +
 '<p>Eating a range of colours ensures a balanced intake of these nutrients.</p>' +
+'<p>It is recommended to have at least 3 serves of vegetables a day and 2 serves of fruit.</p>' +
 '<p>An easy way to think of what one serve of fruit or vegetables looks like, is to look at what can fit in the palm of your hand.</p>',
       subtitle: 'why eat veges when you can eat chips',
     };
