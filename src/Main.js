@@ -11,6 +11,7 @@ import Left from './Left';
 import FoodChip from './FoodChip';
 import FoodCard from './FoodCard';
 import Tabbed from './Tabbed';
+import TabbedMobile from './TabbedMobile';
 // <div style={{ width:'20%', height:'100%', float:'left' }}>
 //   <img src= '../images/banner.png'/>
 //
@@ -18,7 +19,42 @@ import Tabbed from './Tabbed';
 //
 //
 // </div>
-const Main = (props) => (
+class Main extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth,
+    };
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
+render() {
+  const { width } = this.state;
+const isMobile = width <= 500;
+if(isMobile) {
+  return(
+    <Card id='aaa' style={{display:'inline-block', float:'right', width:'100%', padding:'1rem', backgroundColor:'azure'}}>
+      <TabbedMobile style={{ float:'right' }}/>
+
+
+
+    </Card>
+);
+}else {
+  return(
   <div>
     <AppBar
       title="Plum Cake"
@@ -31,7 +67,7 @@ const Main = (props) => (
 
 
     </Card>
-  </div>
-);
-
+  </div>);}
+}
+}
 export default muiThemeable()(Main);
