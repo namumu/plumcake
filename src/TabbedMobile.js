@@ -6,6 +6,7 @@ import FoodGroupTab from './FoodGroupTab';
 import FoodGroupTabMobile from './FoodGroupTabMobile';
 import AutoComplete from 'material-ui/AutoComplete';
 import FoodCard from './FoodCard';
+import FoodCardMobile from './FoodCardMobile';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -1468,7 +1469,7 @@ export default class Tabbed extends React.Component {
                   this.state.foodArray.map(food => {
                       return(
 
-                        <FoodCard obj={FoodMap[food.toLowerCase()]} key={food} clearCard={this.clearCard.bind(this)} style={{opacity:'0', transition:'opacity 1s ease-in-out'}}/>
+                        <FoodCardMobile obj={FoodMap[food.toLowerCase()]} key={food} clearCard={this.clearCard.bind(this)} style={{opacity:'0', transition:'opacity 1s ease-in-out'}}/>
                       );
                   })
                 }

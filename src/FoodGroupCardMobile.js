@@ -55,11 +55,13 @@ export default class FoodGroupCard extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-          contentStyle={{ borderWidth:'10px', borderColor:'rgb(0, 188, 212)', borderStyle:'solid' }}
+          contentStyle={{ width:'80%', borderWidth:'10px', borderColor:'rgb(0, 188, 212)', borderStyle:'solid' }}
+          bodyStyle = {{ fontSize:'10px' }}
+          titleStyle = {{ fontSize:'16px', lineHeight:'16px' }}
         >
         <div className="content" dangerouslySetInnerHTML={{__html: modalText}}></div>
         </Dialog>
-        <CardMedia overlay={<CardTitle title={text} subtitle={subtitle} titleStyle={{ fontSize:'16px', lineHeight:'20px'}} />} mediaStyle={{flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain'}} overlayContentStyle={{ height:'80px' }}>
+        <CardMedia overlay={<CardTitle title={text} subtitle={subtitle} titleStyle={{ fontSize:'12px', lineHeight:'20px'}} />} mediaStyle={{flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain'}} overlayContentStyle={{ height:'80px' }}>
           <img src={imageSource()}
            style={{ flex:'1', top:'0', left:'0', bottom:'0', right:'0', resizeMode:'contain', overflow:'hidden', height:'40vh', background:'no-repeat scroll' }} />
         </CardMedia>
