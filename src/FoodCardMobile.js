@@ -40,6 +40,7 @@ export default class FoodCard extends Component {
     const image = obj.image;
     const category = obj.category;
     const codeName = obj.codeName;
+    const mls = obj.mls;
     const styles = {
     checkbox: {
       marginBottom: 16,
@@ -63,7 +64,14 @@ export default class FoodCard extends Component {
           <CardTitle title={name} subtitle={category} style={{ padding:'0' }} titleStyle={{ fontSize:'16px'}} />
           <CardText style={{ textAlign:'center', padding:'0', fontSize:'10px' }} >
             <p><b>Portion Size:</b> {portionSize}</p>
-            <p><b>Grams:</b> {grams}</p>
+            {
+              grams !== '' &&
+              <p><b>Grams:</b> {grams}</p>
+            }
+            {
+              mls !== '' &&
+              <p><b>Litres:</b> {mls}</p>
+            }
             <p><b>Calories:</b> {calories}</p>
             <p><b>Fat:</b> {fat}</p>
             <p><b>Carbohydrates:</b> {carb}</p>

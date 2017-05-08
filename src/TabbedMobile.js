@@ -18,7 +18,13 @@ const foods = [
   'Macaroni (Raw)', 'Spaghetti (Raw)', 'Spaghetti (Canned)', 'Weet-bix', 'Couscous (Raw)',
   'Kidney Bean', 'Broad Bean', 'Baked Beans', 'Fish (Salmon)', 'Tuna (Canned)', 'Chicken (Canned)', 'Steak',
   'Egg', 'Sausage', 'Bacon', 'Ham', 'Chicken (Thigh)', 'Chicken (Wing)', 'Chicken (Breast)', 'Chia Seed', 'Linseed (Flax Seed)', 'Sunflower Seed', 'Tofu', 'Chickpea', 'Nuts (Almond)',
-  'Nuts (Cashew)', 'Nuts (Pistachio)', 'Nuts (Walnut)', 'Nuts (Macademia)',
+  'Nuts (Cashew)', 'Nuts (Pistachio)', 'Nuts (Walnut)', 'Nuts (Macademia)', 'Banana', 'Apple', 'Peach (Canned)', 'Pear (Canned)', 'Orange', 'Salad Greens', 'Blueberry', 'Raspberry',
+  'Blackberry', 'Strawberry', 'Kiwifruit', 'Apricot', 'Pineapple', 'Pear (Nashi)', 'Watermelon', 'Rockmelon', 'Mango', 'Papaya',
+  'Capsicum', 'Grape', 'Apricot (Dried)', 'Raisin (Dried)', 'Prune (Dried)', 'Onion', 'Tomato', 'Corn', 'Broccoli', 'Carrot', 'Potato', 'Pumpkin',
+  'Yoghurt','Cheese (Mozzarella)', 'Cheese (Parmesan)', 'Cheese (Cheddar)', 'Milk (Trim)', 'Milk (Full fat)',
+  'Paneer', 'Cheese (Feta)', 'Cream Cheese', 'Muffin', 'Chips', 'Pringles', 'Shapes', 'Brownie', 'Apple Pie',
+  'Ice Cream Cone', 'Lasagna', 'Pizza', 'Muesli Bar', 'Tim tams', 'Steak and cheese pie', 'Cup ramen', 'Chicken nuggets', 'French Fries',
+  'Oil', 'Butter', 'Salad dressing', 'Up and Go', 'Water', 'Wine', 'Spirits', 'Beer', 'Coke', 'Diet Coke', 'Sprite', 'Coconut water', 'Coconut Milk', 'Almond Milk', 'Soy Milk',
 ];
 
 const styles = {
@@ -1434,7 +1440,7 @@ export default class Tabbed extends React.Component {
           <div>
             <FoodGroupTabMobile />
           </div>
-          <div>
+          <div style={{ margin:'1rem' }}>
           <h1>What is a healthy plate model?</h1>
             <img src={require("../public/images/healthy.png")} style={{ margin:'0 auto', display:'block', width:'40%', float:'right' }}/>
             <p>

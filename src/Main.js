@@ -46,7 +46,7 @@ render() {
 const isMobile = width <= 500;
 if(isMobile) {
   return(
-    <Card id='aaa' style={{display:'inline-block', float:'right', width:'100%', padding:'1rem', backgroundColor:'azure'}}>
+    <Card id='aaa' style={{display:'inline-block', float:'right', width:'100%', backgroundColor:'azure'}}>
       <TabbedMobile style={{ float:'right' }}/>
 
 
