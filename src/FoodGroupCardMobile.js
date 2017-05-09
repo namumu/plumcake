@@ -38,9 +38,9 @@ export default class FoodGroupCard extends Component {
         case 'Other':
           return require('../public/images/other.jpg');
         case 'Milk and milk products':
-          return require('../public/images/milk.jpg');
+          return require('../public/images/dairy_mobile.jpg');
         case 'Beverage':
-          return require('../public/images/drinks.jpg');
+          return require('../public/images/beverage_mobile.jpeg');
         case 'Breads and cereals':
           return require('../public/images/wholegrains.jpg');
         default:

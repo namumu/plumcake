@@ -65,7 +65,7 @@ export default class FoodGroupTab extends Component {
 
     const drink = {
       text: 'Beverage',
-      image: './images/drinks.png',
+      image: './images/beverage_mobile.jpg',
       modalText: '<p>Water is the go-to drink!</p>' +
       '<p>It is recommended to have 8-10 cups of water in a day.</p>' +
       '<p>Be careful of fruit juices, energy drinks and soft drinks which are often full of added sugar.</p>' +
