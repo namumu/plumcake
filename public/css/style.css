@@ -24,8 +24,3 @@
   opacity: 1;
   transition: opacity .5s ease-in;
 }
-
-body {
-  background-image: url('../images/background.jpg');
-  background-size: 100%;
-}
